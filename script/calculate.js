@@ -32,6 +32,37 @@ function calculateRectangleArea() {
     // show rectangle area
     const rectangleAreaSpan = document.getElementById('rectangle-area');
     rectangleAreaSpan.innerText = rectangleArea;
+}
 
 
+// reuseable function --reduce duplicate
+function calculateParallelogramArea() {
+    const base = getInputValue('parallelogram-base');
+    const height = getInputValue('parallelogram-height');
+    const parallelogramArea = base * height;
+    setElementInnerText('parallelogram-area', parallelogramArea);
+}
+
+function calculateEllipseArea() {
+    const majorRadius = getInputValue('ellipse-major-radius');
+
+    const minorRadius = getInputValue('ellipse-minor-radius');
+
+    const ellipseArea = 3.14 * majorRadius * minorRadius;
+    setElementInnerText('ellipse-area', ellipseArea);
+
+}
+
+// reusable get input value field in number
+function getInputValue(fieldId) {
+    const inputField = document.getElementById(fieldId);
+    const inputValueText = inputField.value;
+    const value = parseFloat(inputValueText);
+    return value;
+}
+
+// reusable set span or p or dive text
+function setElementInnerText(elementId, area) {
+    const element = document.getElementById(elementId);
+    element.innerText = area;
 }
